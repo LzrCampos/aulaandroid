@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Crud</string>
+    <string name="title_activity_find_date">FindDate</string>
+</resources>
