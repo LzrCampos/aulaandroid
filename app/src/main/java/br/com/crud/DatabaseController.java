@@ -7,6 +7,10 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.content.Context;
 
 public class DatabaseController {
     private SQLiteDatabase db;
@@ -40,5 +44,31 @@ public class DatabaseController {
         }
         db.close();
         return cursor;
+    }
+    public Cursor carregaDadoById(int id){
+        Cursor cursor;
+        String[] campos =
+                {CreateDatabase.getID(),CreateDatabase.getTITLE(),CreateDatabase.getAUTHOR(),CreateDatabase.getPUBLISHING()};
+        String where = CreateDatabase.getID() + "=" + id;
+        db = database.getReadableDatabase();
+        cursor = db.query(CreateDatabase.getTABLE(),campos,where, null, null, null, null, null);
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
+        db.close();
+        return cursor;
+    }
+    public void alteraRegistro(int id, String titulo, String autor, String editora)
+    {
+        ContentValues valores;
+        String where;
+        db = database.getWritableDatabase();
+        where = CreateDatabase.getID() + "=" + id;
+        valores = new ContentValues();
+        valores.put(CreateDatabase.getTITLE(), titulo);
+        valores.put(CreateDatabase.getAUTHOR(), autor);
+        valores.put(CreateDatabase.getPUBLISHING(), editora);
+        db.update(CreateDatabase.getTABLE(),valores,where,null);
+        db.close();
     }
 }

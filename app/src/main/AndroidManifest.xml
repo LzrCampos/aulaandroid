@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".AlterData"
+            android:label="@string/title_activity_alter_data"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".FindDate"
             android:label="@string/title_activity_find_date"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

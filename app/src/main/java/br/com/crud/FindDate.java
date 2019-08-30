@@ -39,7 +39,7 @@ public class FindDate extends AppCompatActivity {
                 String codigo;
                 cursor.moveToPosition(position);
                 codigo = cursor.getString(cursor.getColumnIndexOrThrow(CreateDatabase.getID()));
-                Intent intent = new Intent(FindDate.this, AlteraDados.class);
+                Intent intent = new Intent(FindDate.this, AlterData.class);
                 intent.putExtra("codigo", codigo);
                 startActivity(intent);
                 finish();
